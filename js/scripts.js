@@ -42,8 +42,8 @@ Places.prototype.deleteDestination = function(id) {
 };
 
 let places = new Places();
-let amsterdam = new Destination("Netherlands", "Amsterdam", "Spring", "I want to go to the Anne Frank house.");
-let puertoVallerta = new Destination("Mexico", "Puerto Vallarta", "US Winter", "I want to go to the beach.");
+let amsterdam = new Destination("Netherlands", "Amsterdam", "Spring", "Visit the Anne Frank house.");
+let puertoVallerta = new Destination("Mexico", "Puerto Vallarta", "US Winter", "Go to the beach.");
 
 places.addDestination(amsterdam);
 places.addDestination(puertoVallerta);
