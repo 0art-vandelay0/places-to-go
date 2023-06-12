@@ -17,9 +17,9 @@ function Destination(country, city, timeOfYear, notes) {
     this.notes = notes;
 }
 
-Destination.prototype.countryCity = function() {
-    return this.country + " " + this.city;
-};
+// Destination.prototype.countryCity = function() {
+//     return this.country + " " + this.city;
+// };
 
 Places.prototype.addDestination = function(destination) {
     destination.id = this.assignId();
@@ -61,6 +61,8 @@ window.addEventListener("load", function() {
         let destination = new Destination(country, city, timeOfYear, notes);
 
         places.addDestination(destination);
+
+        document.getElementById('destinationForm').reset();
     }
 });
 
