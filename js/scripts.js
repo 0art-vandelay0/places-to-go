@@ -63,6 +63,10 @@ window.addEventListener("load", function() {
         places.addDestination(destination);
 
         document.getElementById('destinationForm').reset();
+
+        // let result = (places.destinations[destination.id].country + " " + places.destinations[destination.id].city + " " + places.destinations[destination.id].timeOfYear + " " + places.destinations[destination.id].notes);
+        document.getElementById("result").innerText = result;
+        document.getElementById("destinations").removeAttribute("class");
     }
 });
 
