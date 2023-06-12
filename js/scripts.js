@@ -9,7 +9,7 @@ Places.prototype.assignId = function() {
     return this.currentId;
 };
 
-  // Business Logic for destinations ---------
+// Business Logic for destinations ---------
 function Destination(country, city, timeOfYear, notes) {
     this.country = country;
     this.city = city;
