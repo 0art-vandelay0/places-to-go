@@ -62,14 +62,22 @@ window.addEventListener("load", function() {
 
         places.addDestination(destination);
 
-        document.getElementById('destinationForm').reset();
+        // document.getElementById('destinationForm').reset();
 
-        // let result = (places.destinations[destination.id].country + " " + places.destinations[destination.id].city + " " + places.destinations[destination.id].timeOfYear + " " + places.destinations[destination.id].notes);
-        document.getElementById("result").innerText = result;
+        let countryResult = places.destinations[destination.id].country;
+        let cityResult = places.destinations[destination.id].city;
+        let timeOfYearResult = places.destinations[destination.id].timeOfYear;
+        let notesResult = places.destinations[destination.id].notes;
+
+        document.getElementById("country").innerText = countryResult;
+        document.getElementById("city").innerText = cityResult;
+        document.getElementById("timeOfYear").innerText = timeOfYearResult;
+        document.getElementById("notes").innerText = notesResult;
+
+        // document.getElementById("resultTest").innerText = places
+        console.log(places.destinations);
+        document.getElementById("resultTest").innerText = places.destinations[destination.id].country;
+
         document.getElementById("destinations").removeAttribute("class");
     }
 });
-
-// console.log(places);
-// console.log(places.deleteDestination(1));
-// console.log(places.destinations);
