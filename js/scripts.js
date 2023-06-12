@@ -1,51 +1,52 @@
-// Business Logic for AddressBook ---------
-function AddressBook() {
-    this.contacts = {};
+// Business Logic for Places ---------
+function Places() {
+    this.destinations = {};
     this.currentId = 0;
 }
 
-AddressBook.prototype.addContact = function(contact) {
-    contact.id = this.assignId();
-    this.contacts[contact.id] = contact;
+Places.prototype.addDestination = function(destination) {
+    destination.id = this.assignId();
+    this.destinations[destination.id] = destination;
 };
 
-AddressBook.prototype.assignId = function() {
+Places.prototype.assignId = function() {
     this.currentId += 1;
     return this.currentId;
 };
 
-  // Business Logic for Contacts ---------
-function Contact(firstName, lastName, phoneNumber) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phoneNumber = phoneNumber;
+  // Business Logic for destinations ---------
+function Destination(country, city, timeOfYear, notes) {
+    this.country = country;
+    this.city = city;
+    this.timeOfYear = timeOfYear;
+    this.notes = notes;
 }
 
-Contact.prototype.fullName = function() {
-    return this.firstName + " " + this.lastName;
+Destination.prototype.countryCity = function() {
+    return this.country + " " + this.city;
 };
 
-AddressBook.prototype.findContact = function(id) {
-    if (this.contacts[id] !== undefined) {
-        return this.contacts[id];
+Places.prototype.findDestination = function(id) {
+    if (this.destinations[id] !== undefined) {
+        return this.destinations[id];
     }
     return false;
 };
 
-AddressBook.prototype.deleteContact = function(id) {
-    if (this.contacts[id] === undefined) {
+Places.prototype.deleteDestination = function(id) {
+    if (this.destinations[id] === undefined) {
         return false;
     }
-    delete this.contacts[id];
+    delete this.destinations[id];
     return true;
 };
 
-let addressBook = new AddressBook();
-let contact = new Contact("Ada", "Lovelace", "503-555-0100");
-let contact2 = new Contact("Grace", "Hopper", "503-555-0199");
-addressBook.addContact(contact);
-addressBook.addContact(contact2);
+let places = new Places();
+let destination = new Destination("Netherlands", "Amsterdam", "Spring", "I want to go to the Anne Frank house.");
+let destination2 = new Destination("Mexico", "Perto Vallarta", "US Winter", "I want to go to the beach.");
+places.addDestination(destination);
+places.addDestination(destination2);
 
-console.log(addressBook);
-console.log(addressBook.deleteContact(1));
-console.log(addressBook.contacts);
+console.log(places);
+console.log(places.deleteDestination(1));
+console.log(places.destinations);
