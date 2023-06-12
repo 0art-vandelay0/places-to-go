@@ -42,11 +42,12 @@ Places.prototype.deleteDestination = function(id) {
 };
 
 let places = new Places();
-let destination = new Destination("Netherlands", "Amsterdam", "Spring", "I want to go to the Anne Frank house.");
-let destination2 = new Destination("Mexico", "Perto Vallarta", "US Winter", "I want to go to the beach.");
-places.addDestination(destination);
-places.addDestination(destination2);
+let amsterdam = new Destination("Netherlands", "Amsterdam", "Spring", "I want to go to the Anne Frank house.");
+let puertoVallerta = new Destination("Mexico", "Puerto Vallarta", "US Winter", "I want to go to the beach.");
 
-console.log(places);
-console.log(places.deleteDestination(1));
-console.log(places.destinations);
+places.addDestination(amsterdam);
+places.addDestination(puertoVallerta);
+
+// console.log(places);
+// console.log(places.deleteDestination(1));
+// console.log(places.destinations);
