@@ -6,11 +6,28 @@
     <script src="js/scripts.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Places to Go</title>
 </head>
 
 <body>
-
+    <h1>Enter a Destination</h1>
+    <div id='form'>
+        <form id="destinationForm">
+            <label for="countryInput">Country:</label>
+            <input type="text" id="countryInput" required>
+            <br>
+            <label for="cityInput">City:</label>
+            <input type="text" id="cityInput" required>
+            <br>
+            <label for="timeOfYearInput">Time of Year:</label>
+            <input type="text" id="timeOfYearInput" required>
+            <br>
+            <label for="notesInput">Notes:</label>
+            <textarea id="notesInput" required></textarea>
+            <br>
+            <button type="submit">Add Destination</button>
+        </form>
+    </div>
 </body>
 
 </html>
