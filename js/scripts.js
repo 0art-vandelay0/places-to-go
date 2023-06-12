@@ -48,6 +48,22 @@ let puertoVallerta = new Destination("Mexico", "Puerto Vallarta", "US Winter", "
 places.addDestination(amsterdam);
 places.addDestination(puertoVallerta);
 
+
+// UI Logic
+window.addEventListener("load", function() {
+    document.querySelector("#destinationForm").onsubmit = function(event) {
+        event.preventDefault();
+        let country = document.getElementById("countryInput").value;
+        let city = document.getElementById("cityInput").value;
+        let timeOfYear = document.getElementById("timeOfYearInput").value;
+        let notes = document.getElementById("notesInput").value;
+
+        let destination = new Destination(country, city, timeOfYear, notes);
+
+        places.addDestination(destination);
+    }
+});
+
 // console.log(places);
 // console.log(places.deleteDestination(1));
 // console.log(places.destinations);
