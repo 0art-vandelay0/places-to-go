@@ -4,11 +4,6 @@ function Places() {
     this.currentId = 0;
 }
 
-Places.prototype.addDestination = function(destination) {
-    destination.id = this.assignId();
-    this.destinations[destination.id] = destination;
-};
-
 Places.prototype.assignId = function() {
     this.currentId += 1;
     return this.currentId;
@@ -24,6 +19,11 @@ function Destination(country, city, timeOfYear, notes) {
 
 Destination.prototype.countryCity = function() {
     return this.country + " " + this.city;
+};
+
+Places.prototype.addDestination = function(destination) {
+    destination.id = this.assignId();
+    this.destinations[destination.id] = destination;
 };
 
 Places.prototype.findDestination = function(id) {
