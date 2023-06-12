@@ -1,13 +1,7 @@
 // Business Logic for Places ---------
 function Places() {
-    this.destinations = {};
-    this.currentId = 0;
+    this.destinations = [];
 }
-
-Places.prototype.assignId = function() {
-    this.currentId += 1;
-    return this.currentId;
-};
 
 // Business Logic for destinations ---------
 function Destination(country, city, timeOfYear, notes) {
@@ -17,36 +11,11 @@ function Destination(country, city, timeOfYear, notes) {
     this.notes = notes;
 }
 
-// Destination.prototype.countryCity = function() {
-//     return this.country + " " + this.city;
-// };
-
 Places.prototype.addDestination = function(destination) {
-    destination.id = this.assignId();
-    this.destinations[destination.id] = destination;
-};
-
-Places.prototype.findDestination = function(id) {
-    if (this.destinations[id] !== undefined) {
-        return this.destinations[id];
-    }
-    return false;
-};
-
-Places.prototype.deleteDestination = function(id) {
-    if (this.destinations[id] === undefined) {
-        return false;
-    }
-    delete this.destinations[id];
-    return true;
+    this.destinations.push(destination);
 };
 
 let places = new Places();
-let amsterdam = new Destination("Netherlands", "Amsterdam", "Spring", "Visit the Anne Frank house.");
-let puertoVallerta = new Destination("Mexico", "Puerto Vallarta", "US Winter", "Go to the beach.");
-
-places.addDestination(amsterdam);
-places.addDestination(puertoVallerta);
 
 
 // UI Logic
@@ -62,22 +31,12 @@ window.addEventListener("load", function() {
 
         places.addDestination(destination);
 
-        // document.getElementById('destinationForm').reset();
+        let destinationsOutput = document.getElementById("destinationsOutput");
+        let listItem = document.createElement("li");
+        listItem.innerHTML = "Country: " + destination.country + "<br>City: " + destination.city + "<br>Time of Year: " + destination.timeOfYear + "<br>Notes: " + destination.notes +"<br>";
+        destinationsOutput.append(listItem);
 
-        let countryResult = places.destinations[destination.id].country;
-        let cityResult = places.destinations[destination.id].city;
-        let timeOfYearResult = places.destinations[destination.id].timeOfYear;
-        let notesResult = places.destinations[destination.id].notes;
-
-        document.getElementById("country").innerText = countryResult;
-        document.getElementById("city").innerText = cityResult;
-        document.getElementById("timeOfYear").innerText = timeOfYearResult;
-        document.getElementById("notes").innerText = notesResult;
-
-        // document.getElementById("resultTest").innerText = places
-        console.log(places.destinations);
-        document.getElementById("resultTest").innerText = places.destinations[destination.id].country;
-
+        document.getElementById('destinationForm').reset();
         document.getElementById("destinations").removeAttribute("class");
-    }
+    };
 });
