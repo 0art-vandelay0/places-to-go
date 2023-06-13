@@ -31,12 +31,26 @@ window.addEventListener("load", function() {
 
         places.addDestination(destination);
 
-        let destinationsOutput = document.getElementById("destinationsOutput");
-        let listItem = document.createElement("li");
-        listItem.innerHTML = "Country: " + destination.country + "<br>City: " + destination.city + "<br>Time of Year: " + destination.timeOfYear + "<br>Notes: " + destination.notes +"<br>";
-        destinationsOutput.append(listItem);
+        // let destinationsOutput = document.getElementById("destinationsOutput");
+        // let listItem = document.createElement("li");
+        // listItem.innerHTML = "Country: " + destination.country + "<br>City: " + destination.city + "<br>Time of Year: " + destination.timeOfYear + "<br>Notes: " + destination.notes +"<br>";
+        // destinationsOutput.append(listItem);
 
-        document.getElementById('destinationForm').reset();
-        document.getElementById("destinations").removeAttribute("class");
+        // document.getElementById('destinationForm').reset();
+        // document.getElementById("destinations").removeAttribute("class");
+        let destinationsOutput = document.getElementById("destinationsOutput");
+        destinationsOutput.innerHTML = ""; // Clear the previous content
+
+        places.destinations.forEach(function(destination) {
+            let listItem = document.createElement("li");
+            let destinationKeys = Object.keys(destination);
+            let destinationString = "";
+            destinationKeys.forEach(function(key) {
+                destinationString += key + ": " + destination[key] + "<br>";
+            });
+            listItem.innerHTML = destinationString;
+            destinationsOutput.appendChild(listItem);
+            document.getElementById("destinations").removeAttribute("class");
+        });
     };
 });
